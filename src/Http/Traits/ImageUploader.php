@@ -2,6 +2,7 @@
 
 namespace Sherwinchia\LivewireImageUploader\Http\Traits;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 trait ImageUploader
@@ -17,9 +18,9 @@ trait ImageUploader
         $this->$propertyName = $imagesName;
     }
 
-    public function deleteImage($oldImage)
+    public function deleteImage($oldImage, $publicPath)
     {
         //delete image
-        Storage::delete('public/image-uploader/' . $oldImage);
+        //Storage::delete($publicPath.Auth::user()->username.'/' . $oldImage);
     }
 }
